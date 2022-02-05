@@ -17,7 +17,7 @@ import subprocess
 
 bashCommand = 'heroku config:get DATABASE_URL -a tranquil-dawn-82390' #Use your app_name
 
-output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode(“utf-8”) # executing the bash command and converting byte to string
+output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode('utf-8') # executing the bash command and converting byte to string
 
 
 
