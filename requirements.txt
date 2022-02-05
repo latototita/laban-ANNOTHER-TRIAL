@@ -26,6 +26,7 @@ djcacheutils==3.0.0
 idna==2.8
 git+https://github.com/benoitc/gunicorn.git
 importlib-metadata==4.10.0
+python-dotenv
 Jinja2==3.0.3
 Markdown==3.3.6
 MarkupSafe==2.0.1
