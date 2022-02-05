@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
+import subprocess
+
+bashCommand = “heroku config:get DATABASE_URL -a tranquil-dawn-82390” #Use your app_name
+
+output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode(“utf-8”) # executing the bash command and converting byte to string
 
 
 
@@ -87,13 +92,6 @@ WSGI_APPLICATION = 'Eshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'CONN_MAX_AGE': 500
-    }
-}
 
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
