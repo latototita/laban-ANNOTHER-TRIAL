@@ -141,8 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-MEDIA_URL = "/image/download/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #STMP configuration
