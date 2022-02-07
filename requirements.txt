@@ -29,6 +29,8 @@ importlib-metadata==4.10.0
 python-dotenv
 Jinja2==3.0.3
 Markdown==3.3.6
+cloudinary
+django-cloudinary-storage
 MarkupSafe==2.0.1
 oauthlib==3.0.1
 pep8==1.7.1
