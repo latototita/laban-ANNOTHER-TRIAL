@@ -156,8 +156,7 @@ MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# for /static/root/favicon.ico    
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'root') 
+
 #STMP configuration
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
