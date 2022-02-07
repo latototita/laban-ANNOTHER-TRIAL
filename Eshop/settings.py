@@ -147,7 +147,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -155,7 +155,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# for /static/root/favicon.ico    
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'root') 
 #STMP configuration
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
