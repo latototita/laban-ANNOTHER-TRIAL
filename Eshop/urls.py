@@ -18,7 +18,9 @@ urlpatterns = [
    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC _ROOT)
 
 handler400 = 'store.views.views.bad_request'
 handler403 = 'store.views.views.permission_denied'
