@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'store'
 ]
 X_FRAME_OPTIONS='SAMEORIGIN'
-
+WHITENOISE_MANIFEST_STRICT = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
