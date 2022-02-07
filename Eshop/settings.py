@@ -121,9 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Cloudinary stuff
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': pearlmart,
-    'API_KEY': 285244465262975,
-    'API_SECRET': zL3e3F0hXOo9SLmXX7c8joUBviE,
+    'CLOUD_NAME': "pearlmart",
+    'API_KEY': "285244465262975",
+    'API_SECRET': "zL3e3F0hXOo9SLmXX7c8joUBviE",
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinary'
