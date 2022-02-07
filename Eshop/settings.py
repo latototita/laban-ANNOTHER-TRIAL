@@ -155,7 +155,7 @@ STATICFILES_DIRS = (
 MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 #STMP configuration
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
