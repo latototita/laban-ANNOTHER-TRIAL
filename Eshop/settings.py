@@ -15,7 +15,7 @@ import dj_database_url
 import cloudinary
 import cloudinary_storage
 
-
+import django_heroku
 
 
 
@@ -34,7 +34,7 @@ SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [‘127.0.0.1’,'https://pearlmartt.herokuapp.com','localhost']
 
 
 # Application definition
@@ -163,3 +163,4 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='timema04@gmail.com'
 EMAIL_HOST_PASSWORD='last calls'
+django_heroku.settings(locals())
