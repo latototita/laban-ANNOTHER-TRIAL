@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
-
+import cloudinary
+import cloudinary_storage
 
 
 
@@ -42,6 +43,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.admin',
     'crispy_forms',
     'django.contrib.auth',
@@ -116,7 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Cloudinary stuff
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': <pearlmart>,
+    'API_KEY': <285244465262975>,
+    'API_SECRET': <zL3e3F0hXOo9SLmXX7c8joUBviE>,
+}
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinary
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
