@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'store'
 ]
 X_FRAME_OPTIONS='SAMEORIGIN'
-WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_MANIFEST_STRICT = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -147,7 +147,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
