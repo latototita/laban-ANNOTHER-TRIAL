@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
+import os, config
 import django_heroku
 import dj_database_url
 import cloudinary
@@ -121,12 +121,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Cloudinary stuff
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': "pearlmart",
-    'API_KEY': "285244465262975",
-    'API_SECRET': "zL3e3F0hXOo9SLmXX7c8joUBviE",
-}
-
+cloudinary.config( 
+  cloud_name = "pearlmart", 
+  api_key = "285244465262975", 
+  api_secret = "zL3e3F0hXOo9SLmXX7c8joUBviE" 
+)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
