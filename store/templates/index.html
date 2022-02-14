@@ -88,7 +88,7 @@
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<div class="pro-thumbnail">
 				<a href="{% url 'details' product.id %}">
-					<img src="{{product.image.url}}" alt="" style="max-width:100%;height: auto;">
+					<img src="{{product.image.url}}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
 				</a>
 				<div class="caption text-center">
 					<h4 class="bold">{{ product.name }}</h4>
