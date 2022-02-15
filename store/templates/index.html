@@ -126,20 +126,20 @@
 			
 				{% endif %}
 
-				{% if product_list.number|add:'-4' > 1 %}
+				{% if product_list.number|add:'-6' > 1 %}
 				    <li class="btn btn-primary btn-outline-info btn-sm mt-3"><a href="?page={{ product_list.number|add:'-5' }}">&hellip;</a></li>
 				{% endif %}
 
 				{% for i in product_list.paginator.page_range %}
 				    {% if product_list.number == i %}
 					<li class="btn btn-primary btn-outline-info btn-sm mt-3"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-				    {% elif i > product_list.number|add:'-5' and i < product_list.number|add:'5' %}
+				    {% elif i > product_list.number|add:'-7' and i < product_list.number|add:'7' %}
 					<li class="btn btn-primary btn-outline-info btn-sm mt-3"><a href="?page={{ i }}">{{ i }}</a></li>
 				    {% endif %}
 				{% endfor %}
 
-				{% if product_list.paginator.num_pages > product_list.number|add:'4' %}
-				    <li class="btn btn-primary btn-outline-info btn-sm mt-3"><a href="?page={{ product_list.number|add:'5' }}">&hellip;</a></li>
+				{% if product_list.paginator.num_pages > product_list.number|add:'6' %}
+				    <li class="btn btn-primary btn-outline-info btn-sm mt-3"><a href="?page={{ product_list.number|add:'7' }}">&hellip;</a></li>
 				{% endif %}
 
 				{% if product_list.has_next %}
