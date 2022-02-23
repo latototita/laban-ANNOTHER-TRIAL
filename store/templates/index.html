@@ -96,15 +96,13 @@
 					<p class="my-sm-0">{{ product.price }}/=</p>
 					
 					<p >
-						<a href="{% url 'details' product.id %}" class="btn btn-primary btn-sm mt-2"  >
-							<i class="glyphicon glyphicon-eye-open"></i> <i class="my-2 my-sm-0">View</i>
-						</a>
+					
 					<div id="bottom">
 						<form action="/#" method="POST" class="btn-block">
 							{% csrf_token %}
 							<input hidden type="text" name='product' value='{{product.id}}'>
 							<input type="submit" class="btn btn-primary my-2 my-sm-0" 
-								value="Add to Cart" >	
+								style="bottom: 0px; position: relative;"value="Add to Cart" >	
 						</form>
 					</div>
 					</p>
