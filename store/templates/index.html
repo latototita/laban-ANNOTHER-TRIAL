@@ -97,12 +97,12 @@
 					
 					<p >
 					
-					<div id="">
+					<div id="" style="bottom: 0; position: relative;">
 						<form action="/#" method="POST" class="btn-block">
 							{% csrf_token %}
 							<input hidden type="text" name='product' value='{{product.id}}'>
 							<input type="submit" class="btn btn-primary my-2 my-sm-0" 
-								style="bottom: 0; position: relative;"value="Add to Cart" >	
+								value="Add to Cart" >	
 						</form>
 					</div>
 					</p>
