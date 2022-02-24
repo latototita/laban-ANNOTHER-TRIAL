@@ -71,7 +71,7 @@ def store(request):
     else:
         products = Product.get_all_products();
         k=None
-    paginator=Paginator(products,6)
+    paginator=Paginator(products,30)
     page_number=request.GET.get('page')
     
     
@@ -138,7 +138,7 @@ def homepage(request):
     paginator6=Paginator(computers,6)
 
 
-    paginator=Paginator(products,6)
+    paginator=Paginator(products,24)
     page_number=request.GET.get('page')
     
     
