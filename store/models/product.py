@@ -7,7 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.IntegerField(default=0)
     stock = models.IntegerField(default=1)
-    category = models.ManyToManyField(Category, on_delete=models.CASCADE, default=1)
+    category = models.ManyToManyField(Category)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, default=1)
     description = models.CharField(max_length=200, default='' , null=True , blank=True)
     image =CloudinaryField('image')
