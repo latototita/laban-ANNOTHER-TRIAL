@@ -8,7 +8,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+import random
 # Create your views here.
 class Index(View):
 
@@ -71,6 +71,7 @@ def store(request):
     else:
         products = Product.get_all_products();
         k=None
+    random.shuffle(products)
     paginator=Paginator(products,30)
     page_number=request.GET.get('page')
     
@@ -91,6 +92,7 @@ def search(request):
         searched=request.POST['searched']
         multiple_q=Q(Q(name__icontains=searched) | Q(description__icontains=searched))
         products=Product.objects.filter(multiple_q)
+        random.shuffle(products)
         paginator=Paginator(products,6)
         page_number=request.GET.get('page')
         print(page_number)
@@ -128,16 +130,21 @@ def homepage(request):
     electronics=Product.get_all_products_by_categoryid(12)
     shoes=Product.get_all_products_by_categoryid(8)
     computers=Product.get_all_products_by_categoryid(5)
-
-
+    
+    random.shuffle(top_rated)
+    random.shuffle(featured)
+    random.shuffle(best_selling)
+    random.shuffle(electronics)
+    random.shuffle(shoes)
+    random.shuffle(computers)
     paginator1=Paginator(top_rated,6)
     paginator2=Paginator(featured,6)
     paginator3=Paginator(best_selling,6)
     paginator4=Paginator(electronics,6)
     paginator5=Paginator(shoes,6)
     paginator6=Paginator(computers,6)
-
-
+    
+    random.shuffle(products)
     paginator=Paginator(products,24)
     page_number=request.GET.get('page')
     
