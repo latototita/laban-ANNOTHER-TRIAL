@@ -71,7 +71,7 @@ def store(request):
     else:
         products = Product.get_all_products();
         k=None
-    random.shuffle(products)
+    random.shuffle(list(products))
     paginator=Paginator(products,30)
     page_number=request.GET.get('page')
     
