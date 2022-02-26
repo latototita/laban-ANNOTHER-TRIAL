@@ -7,7 +7,7 @@ from store.models.brand import  Brand
 from .forms import OrderForm,ViewCartForm
 from django.contrib.auth.decorators import login_required
 from store.middlewares.auth import auth_middleware
-
+import random
 
 def lart(request):
     ids = list(request.session.get('cart').keys())
@@ -27,11 +27,14 @@ def details(request, id):
         if form.is_valid():
             cart[product] = form.cleaned_data.get('quantity')
     product=Product.objects.get(id=id)
-    context={'product':product,'form':form}
+    related_products = list(Product.objects.filter(category=product.category.id).exclude(id=product.id))
+    random.shuffle(related_products)
+    
+
+    context={'related_products': related_products,'product':product,'form':form}
     cart = request.session.get('cart')
 
     request.session['cart'] = cart
-    print('cart' , request.session['cart'])
     
 
 
