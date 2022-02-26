@@ -122,12 +122,12 @@ def homepage(request):
 
 
 
-    top_rated=Product.get_all_products_by_categoryid(1)
-    featured=Product.get_all_products_by_categoryid(2)
-    best_selling=Product.get_all_products_by_categoryid(3)
-    electronics=Product.get_all_products_by_categoryid(4)
-    shoes=Product.get_all_products_by_categoryid(5)
-    computers=Product.get_all_products_by_categoryid(6)
+    top_rated=Product.objects.filter(is_top_rated=True)
+    featured=Product.objects.filter(is_featured=True)
+    best_selling=Product.objects.filter(is_best_selling=True)
+    electronics=Product.get_all_products_by_categoryid(12)
+    shoes=Product.get_all_products_by_categoryid(8)
+    computers=Product.get_all_products_by_categoryid(5)
 
 
     paginator1=Paginator(top_rated,6)
