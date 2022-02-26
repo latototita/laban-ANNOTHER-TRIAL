@@ -92,7 +92,7 @@ def search(request):
         searched=request.POST['searched']
         multiple_q=Q(Q(name__icontains=searched) | Q(description__icontains=searched))
         products=Product.objects.filter(multiple_q)
-        random.shuffle(products)
+        random.shuffle(list(products))
         paginator=Paginator(products,6)
         page_number=request.GET.get('page')
         print(page_number)
@@ -131,12 +131,12 @@ def homepage(request):
     shoes=Product.get_all_products_by_categoryid(8)
     computers=Product.get_all_products_by_categoryid(5)
     
-    random.shuffle(top_rated)
-    random.shuffle(featured)
-    random.shuffle(best_selling)
-    random.shuffle(electronics)
-    random.shuffle(shoes)
-    random.shuffle(computers)
+    random.shuffle(list(top_rated))
+    random.shuffle(list(featured))
+    random.shuffle(list(best_selling))
+    random.shuffle(list(electronics))
+    random.shuffle(list(shoes))
+    random.shuffle(list(computers))
     paginator1=Paginator(top_rated,6)
     paginator2=Paginator(featured,6)
     paginator3=Paginator(best_selling,6)
@@ -144,7 +144,7 @@ def homepage(request):
     paginator5=Paginator(shoes,6)
     paginator6=Paginator(computers,6)
     
-    random.shuffle(products)
+    random.shuffle(list(products))
     paginator=Paginator(products,24)
     page_number=request.GET.get('page')
     
