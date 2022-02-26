@@ -89,13 +89,13 @@
 			<div class="pro-thumbnail" style="height: 300px;">
 				<a href="{% url 'details' product.id %}">
 					<img src="{{product.image.url}}" alt="" style='max-height: 200px ; max-width: 100%;'>
-				</a>
+				</a></div>
 				<div class="caption text-center">
 				<p class="my-sm-0" class="bold">{{ product.name }}</p>
 					
 					<p class="my-sm-0">{{ product.price }}/=</p>
 					
-					
+					</div>
 					
 					<div class="garison">
 						<p >
@@ -107,10 +107,10 @@
 						</form>	</p>
 					</div>
 				
-				</div>
+				
 	
 			</div>
-		</div>
+		
 	</div>
 	{% endfor %}
 
