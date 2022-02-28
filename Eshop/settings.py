@@ -163,9 +163,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #STMP configuration
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST='smtp.mail.yahoo.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_USER='timema04@gmail.com'
-EMAIL_HOST_PASSWORD='last calls'
+EMAIL_HOST_USER='pearlmartbusinesses@gmail.com'
+EMAIL_HOST_PASSWORD='1234$Victoria'
 django_heroku.settings(locals())
