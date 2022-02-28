@@ -17,7 +17,7 @@ import cloudinary
 import cloudinary_storage
 import cloudinary.uploader
 import cloudinary.api
-
+import environ
 
 
 
@@ -34,7 +34,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['pearlmartt.herokuapp.com', 'localhost', '127.0.0.1']
 
