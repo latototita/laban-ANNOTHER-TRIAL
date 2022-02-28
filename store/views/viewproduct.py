@@ -8,7 +8,7 @@ from .forms import OrderForm,ViewCartForm
 from django.contrib.auth.decorators import login_required
 from store.middlewares.auth import auth_middleware
 import random
-
+from django.core.mail import send_mail
 def lart(request):
     ids = list(request.session.get('cart').keys())
     products = Product.get_products_by_id(ids)
@@ -52,7 +52,7 @@ def checkout1(request):
             products = Product.get_all_products_by_categoryid(categoryID)
         elif brandID:
             products = Product.get_all_products_by_brandid(brandID)
-        paginator=Paginator(products,6)
+        paginator=Paginator(products,30)
         page_number=request.GET.get('page')
     
     
