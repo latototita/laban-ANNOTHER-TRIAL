@@ -42,7 +42,7 @@ def checkout(request):
             'That’s your subject',
             f'Your Order with Order Code   >>{ordering_code}<<   Has Been made Successfully.You will be contacted soon by Our delivery team to make deliveries And Collect Payment, Cash On delivery. Keep This Code   >>{ordering_code}<<   for security purposes and confirmation of delivery',
             settings.EMAIL_HOST_USER,
-            [f'{email}'],
+            [f'{email}','pearlmartbusinesses@gmail.com'],
             fail_silently = False,
         )
 
