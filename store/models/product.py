@@ -11,9 +11,7 @@ class Product(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, default=1)
     description = models.CharField(max_length=200, default='' , null=True , blank=True)
     image =CloudinaryField('image')
-    is_featured=models.BooleanField(default=False)
-    is_top_rated=models.BooleanField(default=False)
-    is_best_selling=models.BooleanField(default=False)
+
 
     @staticmethod
     def get_products_by_id(ids):
