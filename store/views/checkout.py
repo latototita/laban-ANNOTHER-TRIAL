@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template import Context
 from django.template.loader import get_template
-import time
+import datetime
 
 
 @login_required(login_url='login')
