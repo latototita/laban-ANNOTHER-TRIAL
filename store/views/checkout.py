@@ -35,11 +35,9 @@ def checkout(request):
                       email=email,
                       ordering_code=ordering_code,
                       quantity=cart.get(str(product.id)))
+        content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
         order.save()
     
-    template = get_template('cart.html')
-    context = {'products' : 'products'}
-    content = template.render(context)
     if address:
         send_mail(
                 'That’s your subject',
