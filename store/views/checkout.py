@@ -10,7 +10,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template import Context
-from django.template.loader import render_to_string, get_template
+from django.template.loader import get_template
+
+
 
 @login_required(login_url='login')
 def checkout(request):
@@ -35,16 +37,13 @@ def checkout(request):
                       quantity=cart.get(str(product.id)))
         order.save()
     
-    
-    ctx = {
-        'products': products,
-    }
-    message = render_to_string('cart.txt', ctx)
-    message = get_template('cart.html').render(context(ctx))
+    template = get_template('cart.html')
+    context = Context({'products' : products})
+    content = template.render(context)
     if address:
         send_mail(
                 'That’s your subject',
-                message,
+                content,
                 settings.EMAIL_HOST_USER,
                 [f'{email}'],
                 fail_silently = False,
