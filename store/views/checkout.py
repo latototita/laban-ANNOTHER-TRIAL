@@ -10,8 +10,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 import datetime
-
-now = datetime.now() # current date and time
+from django.utils import timezone
+now = timezone.now() # current date and time
 
 
 time = now.strftime("%H:%M:%S")
@@ -31,8 +31,7 @@ def checkout(request):
     products = Product.get_products_by_id(list(cart.keys()))
     print(address, phone, customer, cart, products)
     ordering_code= ''.join([random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567893456789') for _ in range(6)])
-    day=datetime.datetime.today
-    time=str(timezone.now)
+
     for product in products:
         print(cart.get(str(product.id)))
         order = Order(customer=User(id=customer),
