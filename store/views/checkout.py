@@ -38,7 +38,7 @@ def checkout(request):
         order.save()
     
     template = get_template('cart.html')
-    context = Context({'products' : products})
+    context = {'products' : products}
     content = template.render(context)
     if address:
         send_mail(
