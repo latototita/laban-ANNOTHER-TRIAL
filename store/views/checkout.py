@@ -35,21 +35,18 @@ def checkout(request):
                       email=email,
                       ordering_code=ordering_code,
                       quantity=cart.get(str(product.id)))
-        global content
-        content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
         order.save()
     if email:
-        for product in products:
-            content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
+            
         send_mail(
             'That’s your subject',
-            content,
+            f'Your Order with Order Code {ordering_code} Has Been made Successfully.You will be contacted soon by Our delivery team to make deliveries And Collect Payment, Cash On delivery. Keep This Code {ordering_code}for security purposes and confirmation of delivery',
             settings.EMAIL_HOST_USER,
             [f'{email}'],
             fail_silently = False,
         )
 
     
-    messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
+    messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours, With Order Code {ordering_code} To be use for delivery and security. Have a Good Day.Take Care')
     request.session['cart'] = {}
     return redirect('store')
