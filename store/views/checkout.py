@@ -11,8 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template import Context
 from django.template.loader import get_template
-from django.utils import timezone
-import datetime
+import time
 
 
 @login_required(login_url='login')
@@ -49,7 +48,7 @@ def checkout(request):
         )
     send_mail(
             'Order Made',
-            f'Order has been made on at exactly {time} on {day}. Kind make th delivery within 24 Hours. To be delivered at {address}, Contact the customer on {phone}',
+            f'Order has been made on at exactly {time.strftime("%I:%M:%S")} Today. Kind make th delivery within 24 Hours. To be delivered at {address}, Contact the customer on {phone}',
             settings.EMAIL_HOST_USER,
             ['pearlmartbusinesses@gmail.com'],
             fail_silently = False,
