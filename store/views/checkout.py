@@ -38,15 +38,17 @@ def checkout(request):
         global content
         content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
         order.save()
-        if address:
-            send_mail(
-                'That’s your subject',
-                content,
-                settings.EMAIL_HOST_USER,
-                [f'{email}'],
-                fail_silently = False,
-            )
-    
+    if email:
+        for product in products:
+            content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
+        send_mail(
+            'That’s your subject',
+            content,
+            settings.EMAIL_HOST_USER,
+            [f'{email}'],
+            fail_silently = False,
+        )
+
     
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
     request.session['cart'] = {}
