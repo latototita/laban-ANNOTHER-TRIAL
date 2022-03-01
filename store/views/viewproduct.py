@@ -8,7 +8,7 @@ from .forms import OrderForm,ViewCartForm
 from django.contrib.auth.decorators import login_required
 from store.middlewares.auth import auth_middleware
 import random
-from django.core.mail import send_mail
+
 def lart(request):
     ids = list(request.session.get('cart').keys())
     products = Product.get_products_by_id(ids)
