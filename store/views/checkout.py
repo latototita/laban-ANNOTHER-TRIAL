@@ -9,7 +9,7 @@ from store.models.orders import Order
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from datetime import datetime
+import datetime
 
 now = datetime.now() # current date and time
 
