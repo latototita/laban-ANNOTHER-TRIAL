@@ -39,7 +39,8 @@ def checkout(request):
     
     template = get_template('cart.html')
     context = {'products' : products}
-    content = template.render(context)
+    context_dict = context.flatten()
+    content = template.render(context_dict)
     if address:
         send_mail(
                 'That’s your subject',
