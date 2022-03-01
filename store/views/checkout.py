@@ -26,7 +26,7 @@ def checkout(request):
     print(address, phone, customer, cart, products)
     ordering_code= ''.join([random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567893456789') for _ in range(6)])
     day=datetime.datetime.today
-    time=timezone.now
+    time=str(timezone.now)
     for product in products:
         print(cart.get(str(product.id)))
         order = Order(customer=User(id=customer),
