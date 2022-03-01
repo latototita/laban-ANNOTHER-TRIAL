@@ -34,14 +34,20 @@ def checkout(request):
                       quantity=cart.get(str(product.id)))
         order.save()
     
-    request.session['cart'] = {}
+    
+    ctx = {
+        'products': products,
+    }
+
+    message = get_template('cart.html').render(Context(ctx))
     if address:
         send_mail(
                 'That’s your subject',
-                'That’s your message body',
+                message,
                 settings.EMAIL_HOST_USER,
                 [f'{email}'],
                 fail_silently = False,
             )
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
+    request.session['cart'] = {}
     return redirect('store')
