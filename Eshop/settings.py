@@ -165,5 +165,5 @@ EMAIL_HOST='smtp.mail.yahoo.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='pearlmartbusinesses@yahoo.com'
-EMAIL_HOST_PASSWORD='1234$Victoria'
+EMAIL_HOST_PASSWORD='jlxmlemwkciomuea'
 django_heroku.settings(locals())
