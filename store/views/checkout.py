@@ -9,7 +9,8 @@ from store.models.orders import Order
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-
+from django.template import Context
+from django.template.loader import render_to_string, get_template
 
 @login_required(login_url='login')
 def checkout(request):
