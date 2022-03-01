@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 @login_required(login_url='login')
 def checkout(request):
     address = request.POST.get('address')
+    email = request.POST.get('email')
     phone = request.POST.get('phone')
     cart = request.session.get('cart')
     customer = request.session.get('customer')
@@ -27,6 +28,7 @@ def checkout(request):
                       price=product.price,
                       address=address,
                       phone=phone,
+                      email=email,
                       ordering_code=ordering_code,
                       quantity=cart.get(str(product.id)))
         order.save()
