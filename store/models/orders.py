@@ -14,6 +14,7 @@ class Order(models.Model):
     address = models.CharField(max_length=50, default='', blank=True)
     phone = models.CharField(max_length=50, default='', blank=True)
     date = models.DateField(default=datetime.datetime.today)
+    email  = models.EmailField(max_length=70,blank=True,unique=True)
     status = models.BooleanField(default=False)
     ordering_code=models.CharField(max_length=6,default='')
 
