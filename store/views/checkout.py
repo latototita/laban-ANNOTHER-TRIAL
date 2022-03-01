@@ -39,7 +39,7 @@ def checkout(request):
     ctx = {
         'products': products,
     }
-
+    message = render_to_string('cart.txt', ctx)
     message = get_template('cart.html').render(context(ctx))
     if address:
         send_mail(
