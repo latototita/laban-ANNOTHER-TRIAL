@@ -40,7 +40,7 @@ def checkout(request):
             
         send_mail(
             'That’s your subject',
-            f'Your Order with Order Code {ordering_code} Has Been made Successfully.You will be contacted soon by Our delivery team to make deliveries And Collect Payment, Cash On delivery. Keep This Code {ordering_code}for security purposes and confirmation of delivery',
+            f'Your Order with Order Code   >>{ordering_code}<<   Has Been made Successfully.You will be contacted soon by Our delivery team to make deliveries And Collect Payment, Cash On delivery. Keep This Code   >>{ordering_code}<<   for security purposes and confirmation of delivery',
             settings.EMAIL_HOST_USER,
             [f'{email}'],
             fail_silently = False,
