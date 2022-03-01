@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template import Context
 from django.template.loader import get_template
-
+from django.utils import timezone
+import datetime
 
 
 @login_required(login_url='login')
@@ -24,7 +25,8 @@ def checkout(request):
     products = Product.get_products_by_id(list(cart.keys()))
     print(address, phone, customer, cart, products)
     ordering_code= ''.join([random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567893456789') for _ in range(6)])
-
+    day=datetime.datetime.today
+    time=timezone.now
     for product in products:
         print(cart.get(str(product.id)))
         order = Order(customer=User(id=customer),
@@ -42,10 +44,16 @@ def checkout(request):
             'That’s your subject',
             f'Your Order with Order Code   >>{ordering_code}<<   Has Been made Successfully.You will be contacted soon by Our delivery team to make deliveries And Collect Payment, Cash On delivery. Keep This Code   >>{ordering_code}<<   for security purposes and confirmation of delivery',
             settings.EMAIL_HOST_USER,
-            [f'{email}','pearlmartbusinesses@gmail.com'],
+            [f'{email}'],
             fail_silently = False,
         )
-
+    send_mail(
+            'Order Made',
+            f'Order has been made on at exactly {time} on {day}. Kind make th delivery within 24 Hours',
+            settings.EMAIL_HOST_USER,
+            ['pearlmartbusinesses@gmail.com'],
+            fail_silently = False,
+        )
     
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours, With Order Code {ordering_code} To be use for delivery and security. Have a Good Day.Take Care')
     request.session['cart'] = {}
