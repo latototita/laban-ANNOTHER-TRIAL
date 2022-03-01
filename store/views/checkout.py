@@ -49,7 +49,7 @@ def checkout(request):
         )
     send_mail(
             'Order Made',
-            f'Order has been made on at exactly {time} on {day}. Kind make th delivery within 24 Hours',
+            f'Order has been made on at exactly {time} on {day}. Kind make th delivery within 24 Hours. To be delivered at {address}, Contact the customer on {phone}',
             settings.EMAIL_HOST_USER,
             ['pearlmartbusinesses@gmail.com'],
             fail_silently = False,
