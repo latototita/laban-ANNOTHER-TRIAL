@@ -7,6 +7,8 @@ from store.models.product import Product
 from store.models.orders import Order
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+
 
 @login_required(login_url='login')
 def checkout(request):
@@ -28,6 +30,9 @@ def checkout(request):
                       ordering_code=ordering_code,
                       quantity=cart.get(str(product.id)))
         order.save()
+    
     request.session['cart'] = {}
+    if address:
+        send_mail('Subject here', 'Here is the message.', None, [{address}], fail_silently=False)
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
     return redirect('store')
