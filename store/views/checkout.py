@@ -35,6 +35,7 @@ def checkout(request):
                       email=email,
                       ordering_code=ordering_code,
                       quantity=cart.get(str(product.id)))
+        global content
         content=f'Your Order Containing The following Products, {product}:{cart.get(str(product.id))} Has Been made.You will b contacted soon to make deliveries'
         order.save()
     
