@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 from django.views import View
 import random
-from . import settings
+from Eshop import settings
 from store.models.product import Product
 from store.models.orders import Order
 from django.contrib import messages
