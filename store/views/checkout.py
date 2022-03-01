@@ -40,7 +40,7 @@ def checkout(request):
         'products': products,
     }
 
-    message = get_template('cart.html').render(Context(ctx))
+    message = get_template('cart.html').render(context(ctx))
     if address:
         send_mail(
                 'That’s your subject',
