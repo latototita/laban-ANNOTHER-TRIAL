@@ -40,7 +40,7 @@ def checkout(request):
                 'That’s your subject',
                 'That’s your message body',
                 settings.EMAIL_HOST_USER,
-                [{email}],
+                [f'{email}'],
                 fail_silently = False,
             )
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
