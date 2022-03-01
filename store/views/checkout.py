@@ -35,6 +35,12 @@ def checkout(request):
     
     request.session['cart'] = {}
     if address:
-        send_mail('Subject here', 'Here is the message.', None, [{address}], fail_silently=False)
+        send_mail(
+                subject = 'That’s your subject'
+                message = 'That’s your message body'
+                from_email = settings.EMAIL_HOST_USER
+                recipient_list = [{email},]
+                fail_silently = False,
+            )
     messages.success(request, f'Dear Customer Your Order as been Recived  Successfully, Will be delivered To {address} within 24 hours')
     return redirect('store')
