@@ -17,8 +17,11 @@ def Login(request):
         if user is not None:
             login(request,user)
             request.session['customer'] = user.id
-            messages.success(request, f'Welcome, {username}.You have Signed In Successfully')
-            return redirect('store')
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
+            else:
+                messages.success(request, f'Welcome, {username}.You have Signed In Successfully')
+                return redirect('store')
         else:
             messages.success(request, 'Username or Password Incorrect!')
             context={}
