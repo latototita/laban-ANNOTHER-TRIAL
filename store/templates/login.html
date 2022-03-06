@@ -46,8 +46,11 @@
 
                 <hr>
                 <div class="form-group">
-                    
-                    <p><input class="btn btn-primary my-2 my-sm-0" type="submit" value="Login"></p>
+<p>
+                    {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{request.GET.next}}"/>
+                    {% endif %}
+<input class="btn btn-primary my-2 my-sm-0" type="submit" value="Login"></p>
                     <p class="bold" > If not registered click  
                             <a href="/signup">
                                 <i class="btn btn-primary my-2 my-sm-0">SignUp</i> 
