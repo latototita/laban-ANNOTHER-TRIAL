@@ -1,7 +1,6 @@
 from django.db import models
 from .category import Category
 from .brand import Brand
-from cloudinary.models import CloudinaryField
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -10,7 +9,7 @@ class Product(models.Model):
     category =models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, default=1)
     description = models.CharField(max_length=200, default='' , null=True , blank=True)
-    image =CloudinaryField('image')
+    image =models.ImageField(upload_to='uploads/products')
 
 
     @staticmethod
