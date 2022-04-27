@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,response
 from django.contrib.auth.hashers import make_password
 from .home import store
 from django.views import View
