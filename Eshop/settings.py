@@ -10,14 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os, config
-import django_heroku
-import dj_database_url
-import cloudinary
-import cloudinary_storage
-import cloudinary.uploader
-import cloudinary.api
-import environ
+import os
 
 
 
@@ -35,8 +28,7 @@ SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['pearlmartt.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['161.35.42.73']
 
 
 # Application definition
@@ -44,8 +36,6 @@ ALLOWED_HOSTS = ['pearlmartt.herokuapp.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
-    'cloudinary',
-    'cloudinary_storage',
     'django.contrib.admin',
     'crispy_forms',
     'django.contrib.auth',
@@ -60,7 +50,6 @@ X_FRAME_OPTIONS='SAMEORIGIN'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -99,8 +88,6 @@ DATABASES = {
     }
 }
 
-db_from_env=dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -120,13 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Cloudinary stuff
-cloudinary.config( 
-  cloud_name = "pearlmart", 
-  api_key = "285244465262975", 
-  api_secret = "zL3e3F0hXOo9SLmXX7c8joUBviE" 
-)
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -155,8 +136,6 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #STMP configuration
 
@@ -166,4 +145,3 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='pearlmartbusinesses@yahoo.com'
 EMAIL_HOST_PASSWORD='jlxmlemwkciomuea'
-django_heroku.settings(locals())
