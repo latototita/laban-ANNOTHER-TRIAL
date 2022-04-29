@@ -28,7 +28,7 @@ SECRET_KEY = '^_g%33qd(g8bjc+*40&uh(ptgkb$&-*+0!i3$lu7xj1u166cbb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['161.35.42.73']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'Eshop.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "demodb",
+        "USER": "django",
+        "PASSWORD": "djangopassword",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -133,6 +137,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, 'whole-static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
