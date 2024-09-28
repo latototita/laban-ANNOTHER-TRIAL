@@ -1,12 +1,12 @@
 asgiref==3.4.1
 autopep8
 django-environ==0.8.1 
-backports.zoneinfo==0.2.1
-certifi==2019.3.9
-chardet==3.0.4
+backports.zoneinfo
+certifi
+chardet
 django-environ
 gunicorn
-defusedxml==0.6.0
+defusedxml
 Django==2.2.14
 django-admin-charts==0.25.2
 django-admin-interface==0.18.5
