@@ -11,6 +11,7 @@ django-admin-charts
 django-admin-interface
 django-allauth
 django-bower
+psycopg2-binary
 django-colorfield
 django-countries
 django-crispy-forms
