@@ -1,7 +1,6 @@
 asgiref==3.4.1
 autopep8
 django-environ==0.8.1 
-backports.zoneinfo
 certifi
 chardet
 django-environ
