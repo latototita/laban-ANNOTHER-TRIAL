@@ -9,7 +9,7 @@ defusedxml
 Django==2.2.14
 django-admin-charts
 django-admin-interface
-django-allauth==0.39.1 --only-binary :all:
+django-allauth
 django-bower
 django-colorfield
 django-countries
