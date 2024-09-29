@@ -92,12 +92,26 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-'''
+
 # settings.py
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Use os.path.join for string paths
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Supabase database name
+        'USER': 'postgres.atxojmoemxbltuhhkeco',  # Supabase user
+        'PASSWORD': '1234$Victoria####$$',  # Your Supabase password
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',  # Supabase host
+        'PORT': '6543',  # Supabase port
+        'OPTIONS': {
+            'sslmode': 'require',  # Enforce SSL connection
+        },
     }
 }
 
